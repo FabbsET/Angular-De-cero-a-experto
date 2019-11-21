@@ -16,7 +16,6 @@ export class HeroeComponent {
   ) {
     this.activateRoute.params.subscribe(params => {
       // console.log(params['id']);
-      // tslint:disable-next-line: no-string-literal
       this.heroe = this.heroeService.getHeroe(params['id']);
       console.log(this.heroe);
     });

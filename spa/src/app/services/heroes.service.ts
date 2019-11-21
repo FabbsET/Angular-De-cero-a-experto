@@ -63,8 +63,22 @@ export class HeroesService {
         return this.heroes;
     }
 
-    getHeroe( idx: string) {
+    getHeroe(idx: string) {
         return this.heroes[idx];
+    }
+
+    buscarHeroes(termino: string) {
+        const heroesArr: Heroe[] = [];
+        termino = termino.toLowerCase();
+
+        for (const heroe of this.heroes) {
+            const nombre = heroe.nombre.toLowerCase();
+
+            if (nombre.indexOf(termino) >= 0) {
+                heroesArr.push(heroe);
+            }
+        }
+        return heroesArr;
     }
 }
 
