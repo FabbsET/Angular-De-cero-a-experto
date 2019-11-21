@@ -1,0 +1,25 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HeroesService } from '../../services/heroes.service';
+
+@Component({
+  selector: 'app-heroe',
+  templateUrl: './heroe.component.html'
+})
+export class HeroeComponent {
+
+  heroe: any = {};
+
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private heroeService: HeroesService
+  ) {
+    this.activateRoute.params.subscribe(params => {
+      // console.log(params['id']);
+      // tslint:disable-next-line: no-string-literal
+      this.heroe = this.heroeService.getHeroe(params['id']);
+      console.log(this.heroe);
+    });
+  }
+
+}
